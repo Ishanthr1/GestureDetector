@@ -51,7 +51,7 @@ while True:
 
     # Display result
     cv2.putText(frame, f"Gesture: {prediction}", (10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 4)
     cv2.putText(frame, f"FPS: {int(fps)}", (10, 70),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
 
