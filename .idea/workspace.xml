@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7d86497-adde-4512-aad0-42d050f09db4" name="Changes" comment="" />
+    <list default="true" id="d7d86497-adde-4512-aad0-42d050f09db4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gesture_Recognition_App.py" beforeDir="false" afterPath="$PROJECT_DIR$/gesture_Recognition_App.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gesture_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gesture_model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainerFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainerFile.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +53,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,6 +79,9 @@
       <workItem from="1748117741399" duration="2000" />
       <workItem from="1748147265882" duration="30000" />
       <workItem from="1748148786949" duration="293000" />
+      <workItem from="1748212297587" duration="212000" />
+      <workItem from="1748212513392" duration="60000" />
+      <workItem from="1748212595585" duration="4451000" />
     </task>
     <task id="LOCAL-00001" summary="Detection Commit">
       <option name="closed" value="true" />
@@ -95,8 +110,8 @@
     <option name="LAST_COMMIT_MESSAGE" value="Detection Commit" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/GestureDetector$gesture_Recognition_App.coverage" NAME="gesture_Recognition_App Coverage Results" MODIFIED="1748148826415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/GestureDetector$trainerFile.coverage" NAME="trainerFile Coverage Results" MODIFIED="1748116968885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/GestureDetector$dataFile.coverage" NAME="dataFile Coverage Results" MODIFIED="1748116897552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GestureDetector$gesture_Recognition_App.coverage" NAME="gesture_Recognition_App Coverage Results" MODIFIED="1748216158900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GestureDetector$trainerFile.coverage" NAME="trainerFile Coverage Results" MODIFIED="1748215507737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GestureDetector$dataFile.coverage" NAME="dataFile Coverage Results" MODIFIED="1748213867133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

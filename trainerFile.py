@@ -4,7 +4,7 @@ from sklearn.metrics import classification_report
 import pandas as pd
 
 # Load data
-df = pd.read_csv("gesture_data.csv")
+df = pd.read_csv("gesture_data_from_images.csv")
 X = df.iloc[:, :-1]
 y = df.iloc[:, -1]
 

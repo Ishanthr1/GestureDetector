@@ -1,59 +1,52 @@
+import os
 import cv2
 import mediapipe as mp
-import numpy as np
 import pandas as pd
-import time
+
+# Paths
+IMAGE_FOLDER = "asl_alphabet_train"
+OUTPUT_CSV = "gesture_data_from_images.csv"
 
 mp_hands = mp.solutions.hands
-mp_drawing = mp.solutions.drawing_utils
-
-# Define your gesture label here
-GESTURE_LABEL = "STOP"  # Change this for each gesture you collect
-
-# Output CSV
-CSV_FILE = "gesture_data.csv"
 
 def extract_landmarks(hand_landmarks):
     return [coord for lm in hand_landmarks.landmark for coord in (lm.x, lm.y, lm.z)]
 
-# Start webcam and collect data
-cap = cv2.VideoCapture(0)
-hands = mp_hands.Hands(static_image_mode=False, max_num_hands=1)
+all_data = []
 
-data = []
+with mp_hands.Hands(static_image_mode=True, max_num_hands=1) as hands:
+    for label in os.listdir(IMAGE_FOLDER):
+        label_path = os.path.join(IMAGE_FOLDER, label)
+        if not os.path.isdir(label_path):
+            continue
 
-print("Starting capture. Press 's' to save frame, 'q' to quit.")
+        for filename in os.listdir(label_path):
+            if not filename.lower().endswith((".jpg", ".jpeg", ".png")):
+                continue
 
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        break
+            img_path = os.path.join(label_path, filename)
+            image = cv2.imread(img_path)
 
-    # Flip the frame to make it mirror-like
-    frame = cv2.flip(frame, 1)
-    image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    results = hands.process(image)
+            if image is None:
+                print(f"Failed to load image: {img_path}")
+                continue
 
-    if results.multi_hand_landmarks:
-        for hand_landmarks in results.multi_hand_landmarks:
-            mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+            image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            results = hands.process(image_rgb)
 
-            if cv2.waitKey(1) & 0xFF == ord('s'):
-                row = extract_landmarks(hand_landmarks)
-                row.append(GESTURE_LABEL)
-                data.append(row)
-                print(f"Saved frame with label: {GESTURE_LABEL}")
-
-    cv2.imshow('Hand Landmark Capture', frame)
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
+            if results.multi_hand_landmarks:
+                landmarks = extract_landmarks(results.multi_hand_landmarks[0])
+                landmarks.append(label)
+                all_data.append(landmarks)
+            else:
+                print(f"No hands detected in: {img_path}")
 
 # Save to CSV
-if data:
-    df = pd.DataFrame(data)
-    df.to_csv(CSV_FILE, mode='a', header=not pd.read_csv(CSV_FILE).empty if pd.io.common.file_exists(CSV_FILE) else True, index=False)
-    print(f"Saved {len(data)} samples to {CSV_FILE}")
+if all_data:
+    num_features = len(all_data[0]) - 1
+    columns = [f"x{i}" for i in range(num_features)] + ["label"]
+    df = pd.DataFrame(all_data, columns=columns)
+    df.to_csv(OUTPUT_CSV, index=False)
+    print(f"Saved {len(all_data)} samples to {OUTPUT_CSV}")
+else:
+    print("No valid hand landmarks extracted.")
